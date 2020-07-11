@@ -27,6 +27,7 @@ key_int = [int(i) for i in key.split()]
 #Loop over every element of the key
 for k in key_int:
     #Whether or not the elemnt of the key is positive or negative tells us whci direction the columns should be read in 
+    #columns will be read front to back later
     if k < 0:
         #If ellement of key is less than zero its already in order, add it to temporary location
         col_items = cipher_list[start:stop]
@@ -44,7 +45,7 @@ print("\nciphertext = {}".format(cipher_text))
 print("\ntranslation matrix = ", *translation_matrix, sep="\n")
 print("\nkey length = {}".format(len(key_int)))
 
-#remove ordered columns and then remove every element from each column and add to plaintext holder
+#from each ordered column remove last element and add to plaintext holder
 for i in range(rows):
     for col_items in translation_matrix:
         word = str(col_items.pop())
